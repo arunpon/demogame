@@ -1,3 +1,12 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
 .container {
   float: left;
   margin: 0 0 0 2%;
@@ -65,6 +74,10 @@
   .container .object {
     width: 120px;
     height: 80px;
+  }
+
+  .container {
+    width: 47%;
   }
 
   .container .object .placeholder {

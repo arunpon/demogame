@@ -4,8 +4,8 @@
     <title>Set Game</title>
     <meta name="description" content="Set Game for learning HTML5 Canvas" />
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+    <script type="text/JavaScript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/JavaScript" src="js/jquery-ui.min.js"></script>
     <script type="text/JavaScript" src="js/jquery.ui.touch-punch.min.js"></script>
     <script type="text/JavaScript" src="js/jquery.shapeshift.js"></script>
     <script type="text/JavaScript" src="template/template.js"></script>
@@ -19,18 +19,16 @@
     <link href="template/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="template/template.css" rel="stylesheet" type="text/css" />
     <link href="css/game.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+    <link href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" rel="stylesheet" />
 
   </head>
   <body>
-    <header>
-    <div>    
-        <span class="label"></span>
-        <div class="container">
+    <div>
+        <span class="label" style="position: absolute;"></span>
+        <div class="container" style="position: relative;"></div>
+        <div id="dialog-confirm" title="Cool on Solving the Puzzle">
+            <p><span style="float: left; margin: 0 7px 20px 0;"></span> Press Ok for reload</p>
         </div>
-    </div> 
-    <div id="dialog-confirm" title="Cool on Solving the Puzzle">
-        <p><span style="float: left; margin: 0 7px 20px 0;"></span> Press Ok for reload</p>
     </div>
   </body>
 </html>

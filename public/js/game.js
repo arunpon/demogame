@@ -4,6 +4,8 @@ $(document).ready(function() {
 
   function renderChildren() {
     $containers.each(function(container_i) {
+      //$(container_i).width($('body').width()/3);
+      //$(container_i).height($('body').height()/3);
       $( "#dialog-confirm" ).hide();
       $(".label").html("Please Solve the puzzle, Click three tiles that form a set");
       var randomArray = getDistinctRandomNumber(3, 0, 11);
@@ -17,7 +19,7 @@ $(document).ready(function() {
         var countDistinct = getDistinct();
         var j = shapeDistinct.length -1;
       for(var i=0;i<12;i++) {
-        var element = $("<canvas width = '120' height = '80' class='object'"+ "id='tile_"+ i +"' ></canvas>");
+        var element = $("<canvas width = '120' height = '80' class='object' style='position:absolute;'"+ "id='tile_"+ i +"' ></canvas>");
         $(this).append(element);
         if (!randomArray[i]) {
           var shapeRand = getRandom(0,2), colorRand = getRandom(0,2), fillRand = getRandom(0,2), countRand = getRandom(0,2);
@@ -231,7 +233,8 @@ function isDistinctOrSame(attributeValuesArray) {
   $containers.shapeshift({
     paddingY: 20,
     enableDrag: true,
-    columns: 4
+    columns: 4,
+    enableAnimationOnInit: true
   });
 
   $containers.on("click", function(e, selected) {
