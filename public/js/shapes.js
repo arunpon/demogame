@@ -1,7 +1,7 @@
 var GAME_UTIL = (function() {
       var SHAPES = 'oval rectangle roundedRectangle'.split(' ');
       var SHAPE_COUNT = '1 2 3'.split(' ');
-      var SHAPE_COLOR = '#FB000D #4D54D8 #14D100'.split(' ');
+      var SHAPE_COLOR = '#FB000D #4D54D8 #589530'.split(' ');
       var SHAPE_FILLTYPE = 'solid empty dotted'.split(' ');
      return {
         getShape: function(i) { return SHAPES[i]; },

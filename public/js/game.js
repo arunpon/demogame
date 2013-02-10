@@ -19,6 +19,8 @@ $(document).ready(function() {
         var countDistinct = getDistinct();
         var j = shapeDistinct.length -1;
       for(var i=0;i<12;i++) {
+        var column = i%4;
+        var row = Math.floor (i/3);
         var element = $("<canvas width = '120' height = '80' class='object' style='position:absolute;'"+ "id='tile_"+ i +"' ></canvas>");
         $(this).append(element);
         if (!randomArray[i]) {
@@ -230,12 +232,26 @@ function isDistinctOrSame(attributeValuesArray) {
 }
 
   // Initial Shapeshift
+function shapeShift() {
   $containers.shapeshift({
     paddingY: 20,
+    paddingX: 20,
     enableDrag: true,
     columns: 4,
     enableAnimationOnInit: true
   });
+  /*var width = $('body').width()/2;
+  var height = $('body').height()/3;
+  $containers.gridster({
+        widget_margins: [10, 10],
+        widget_base_dimensions: [120, 80],
+        min_cols: 4,
+        max_size_x: 4,
+        autogenerate_stylesheet: true
+    });*/
+}
+
+shapeShift();
 
   $containers.on("click", function(e, selected) {
     //if () {
