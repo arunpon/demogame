@@ -1,38 +1,44 @@
+var express = require('express'),
+  app = express()
 
-/**
- * Module dependencies.
- */
+// Reference
+// http://expressjs.com/guide.html
+// https://github.com/spadin/simple-express-static-server
+// http://devcenter.heroku.com/articles/node-js
 
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , path = require('path');
-
-var app = express();
-
+// Configuration
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
+  app.use(express.static(__dirname + '/public'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+
+  // LESS Support
+  //app.use(express.compiler({ src: __dirname + '/public', enable: ['less'] }));
+  // Template-enabled html view (by jade)
+  // http://stackoverflow.com/questions/4529586/render-basic-html-view-in-node-js-express
+  //app.set('views', __dirname + '/app/views');
+  //app.register('.html', require('jade'));
+  
+  //Error Handling
+  app.use(express.logger());
+  app.use(express.errorHandler({
+    dumpExceptions: true, 
+    showStack: true
+  }));
+  
+  //Setup the Route, you are almost done
   app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
 });
 
-app.configure('development', function(){
-  app.use(express.errorHandler());
-});
-
-//app.get('/', routes.index);
 app.get('/', function(req, res){
+  //Apache-like static index.html (public/index.html)
   res.redirect("/index.html");
+  //Or render from view
+  //res.render("index.html")
 });
-app.get('/users', user.list);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+//Heroku
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
 });
