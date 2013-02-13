@@ -7,7 +7,7 @@ $(document).ready(function() {
       //$(container_i).width($('body').width()/3);
       //$(container_i).height($('body').height()/3);
       $( "#dialog-confirm" ).hide();
-      $(".label").html("Please Solve the puzzle, Click three tiles that form a set");
+      $(".conalias").html("Please Solve the puzzle, Click three tiles that form a set");
       var randomArray = getDistinctRandomNumber(3, 0, 11);
       randomArray = getValueObjFromArray(randomArray);
       var gameArray = [];
