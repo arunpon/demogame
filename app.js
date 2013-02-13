@@ -1,5 +1,6 @@
 var express = require('express'),
-  app = express()
+  app = express(),
+  routes = require('./routes');
 
 // Reference
 // http://expressjs.com/guide.html
